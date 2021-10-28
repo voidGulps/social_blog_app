@@ -2,10 +2,8 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "engines":{
-    "node":"14.18.0"
-  },
+  "main": "server.js",
+  
   "scripts": {
     "start": "node server",
     "dev": "cross-env NODE_ENV=development nodemon server"
