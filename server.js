@@ -44,6 +44,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use(express.json())
 
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
