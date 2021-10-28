@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 5000
 const Article = require('./models/article')
 const articleRouter = require("./routes/articles")
 const methodOverride=require("method-override")
+const router=express.Router()
 
 
 dotenv.config({path:'./config/config.env'})
