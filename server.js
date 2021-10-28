@@ -6,10 +6,11 @@ const connectDB =require('./config/db')
 const passport = require('passport')
 const session =require('express-session')
 const MongoStore=require('connect-mongo')
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || config.httpPort
 const Article = require('./models/article')
 const articleRouter = require("./routes/articles")
 const methodOverride=require("method-override")
+const { config } = require('process')
 const router=express.Router()
 
 
