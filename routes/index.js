@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require("express")
 const { ensureAuth, ensureGuest } = require('../middlewares/auth')
 const Article=require('../models/article')
 const router = express.Router()

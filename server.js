@@ -1,5 +1,5 @@
-const path = require('path')
 const express = require("express")
+const path = require('path')
 const mongoose =require('mongoose')
 const dotenv = require('dotenv')
 const connectDB =require('./config/db')
@@ -11,7 +11,7 @@ const Article = require('./models/article')
 const articleRouter = require("./routes/articles")
 const methodOverride=require("method-override")
 const { config } = require('process')
-const router=express.Router()
+
 
 
 dotenv.config({path:'./config/config.env'})
@@ -43,8 +43,6 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
-
-app.use(express.json())
 
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
