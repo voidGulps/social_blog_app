@@ -12,8 +12,8 @@ router.get('/',ensureGuest, (req, res) => {
 
 router.get('/dashboard',ensureAuth, async(req, res) => {
     try{
-        const articles=await Article.find({user:req.user.id})
-        res.render('dashboard',{name:req.user.firstName,articles})
+        const userArticles=await Article.find({user:req.user.googleId}).lean()
+        res.render('dashboard',{name:req.user.firstName,userArticles})
     }
     catch(err){console.error(err)}
         })

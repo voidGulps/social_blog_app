@@ -51,7 +51,7 @@ app.use('/articles', require('./routes/articles'))
 app.get("/articles", async(req, res) => {
   const articles = await Article.find().sort({createdAt:'desc'})
   
-  res.render("articles/index", { articles: articles,name:req.user.firstName });
+  res.render("articles/index", { articles: articles,name:Article.user.firstName });
 });
 
 app.use("/articles", articleRouter);
