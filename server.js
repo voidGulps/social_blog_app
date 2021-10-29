@@ -6,7 +6,6 @@ const connectDB =require('./config/db')
 const passport = require('passport')
 const session =require('express-session')
 const MongoStore=require('connect-mongo')
-const PORT = process.env.PORT || 5000
 const Article = require('./models/article')
 const articleRouter = require("./routes/articles")
 const methodOverride=require("method-override")
@@ -57,4 +56,4 @@ app.get("/articles", async(req, res) => {
 
 app.use("/articles", articleRouter);
 
-app.listen(PORT,console.log(`server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
+app.listen(process.env.PORT || 5000,console.log(`server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
