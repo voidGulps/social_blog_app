@@ -37,6 +37,7 @@ function saveArticleAndRedirect(path){
     return async(req,res)=>{
         let article=req.article
             article.title=req.body.title
+            article.user=req.user.firstName
             article.description=req.body.description
             article.markdown=req.body.markdown
            
