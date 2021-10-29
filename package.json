@@ -4,10 +4,9 @@
   "description": "",
   "main": "server.js",
   "engines": {
-    "node":"14.18.0",
-    "npm":"6.14.15"
+    "node": "14.18.0",
+    "npm": "6.14.15"
   },
-  
   "scripts": {
     "start": "node server",
     "dev": "cross-env NODE_ENV=development nodemon server"
