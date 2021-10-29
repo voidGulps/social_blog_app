@@ -56,4 +56,4 @@ app.get("/articles", async(req, res) => {
 
 app.use("/articles", articleRouter);
 
-app.listen(process.env.PORT || 5000,console.log(`server running in ${process.env.NODE_ENV} mode on port ${PORT}`));
+app.listen(process.env.PORT || 5000);
