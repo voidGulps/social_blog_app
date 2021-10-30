@@ -1,4 +1,5 @@
 const express = require('express')
+const { ensureAuth, ensureGuest } = require('../middlewares/auth')
 const Article = require ('./../models/article')
 const router = express.Router()
 
@@ -18,9 +19,11 @@ router.get('/:slug',async(req,res)=>{
 
 })
 
-router.post('/',async(req,res,next)=>{
- req.body.user=req.user.id
- req.article=new Article()
+router.post('/',ensureAuth,async(req,res,next)=>{
+ try{
+     req.body.user=req.user.id
+     req.article=new Article(req.body)
+ }catch(err){console.error(err)}
  next()
 },saveArticleAndRedirect('new'))
 
