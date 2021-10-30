@@ -40,7 +40,9 @@ function saveArticleAndRedirect(path){
             article.description=req.body.description
             article.markdown=req.body.markdown
             article.author=req.user.firstName
-        try{article =await article.save()
+        try{
+            req.body.user=req.user.id
+            article =await article.save()
             res.redirect(`/articles/${article.slug}`)}
         catch(e){
             console.log(e)
