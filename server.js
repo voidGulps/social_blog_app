@@ -49,7 +49,7 @@ app.use('/articles', require('./routes/articles'))
 
 
 app.get("/articles", async(req, res) => {
-  const articles = await Article.find().sort({createdAt:'desc'})
+  const articles = await Article.find().populate('user').sort({createdAt:'desc'})
   
   res.render("articles/index", { articles: articles});
 });
