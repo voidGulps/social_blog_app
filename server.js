@@ -7,6 +7,7 @@ const passport = require('passport')
 const session =require('express-session')
 const MongoStore=require('connect-mongo')
 const Article = require('./models/article')
+
 const articleRouter = require("./routes/articles")
 const methodOverride=require("method-override")
 const { config } = require('process')
@@ -43,6 +44,11 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use(function(req,res,next){
+  res.locals.user=req.user || null
+  next()
+})
 
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))

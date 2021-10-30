@@ -19,16 +19,8 @@ const articleSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    user:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'User'
-    },
     author:{
         type:String
-    },
-    createdAt:{
-        type:Date,
-        default:Date.now
     },
     slug:{
         type:String,
@@ -38,6 +30,14 @@ const articleSchema = new mongoose.Schema({
     sanitizedHtml:{
         type:String,
         required:true
+    },
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User'
+    },
+    createdAt:{
+        type:Date,
+        default:Date.now
     }
 } 
 )
