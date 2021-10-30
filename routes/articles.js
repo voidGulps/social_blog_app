@@ -19,7 +19,8 @@ router.get('/:slug',async(req,res)=>{
 })
 
 router.post('/',async(req,res,next)=>{
- req.article=new Article()
+ req.body.user=req.user.id
+ req.article=new Article(req.body)
  next()
 },saveArticleAndRedirect('new'))
 

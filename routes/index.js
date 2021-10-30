@@ -12,7 +12,7 @@ router.get('/',ensureGuest, (req, res) => {
 
 router.get('/dashboard',ensureAuth, async(req, res) => {
     try{
-        const userArticles=await Article.find({user:req.user._id}).populate('user')
+        const userArticles=await Article.find({user:req.user.id})
         res.render('dashboard',{name:req.user.firstName,userArticles})
     }
     catch(err){console.error(err)}
