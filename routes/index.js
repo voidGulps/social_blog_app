@@ -13,12 +13,12 @@ router.get('/',ensureGuest, (req, res) => {
 router.get('/dashboard',ensureAuth, async(req, res) => {
     try{
         const userArticles=await Article.find({user:req.user.id})
-        res.render('dashboard',{name:req.user.firstName,userArticles})
+        res.render('dashboard',{name:req.user.firstName,userArticles,})
     }
     catch(err){console.error(err)}
         })
 
-router.post('/',async(req,res,next)=>{
+router.post('/dashboard',async(req,res,next)=>{
             req.article=new Article()
             next()
            },saveArticleAndRedirect('new'))
@@ -30,6 +30,7 @@ function saveArticleAndRedirect(path){
                     article.title=req.body.title
                     article.description=req.body.description
                     article.markdown=req.body.markdown
+                    
             
                 try{
                     article =await article.save()
