@@ -20,7 +20,7 @@ router.get('/:slug',async(req,res)=>{
 
 router.post('/',async(req,res,next)=>{
  req.body.user=req.user.id
- req.article=new Article(req.body)
+ req.article=new Article()
  next()
 },saveArticleAndRedirect('new'))
 
@@ -42,7 +42,6 @@ function saveArticleAndRedirect(path){
             article.markdown=req.body.markdown
             article.author=req.user.firstName
         try{
-            req.body.user=req.user.id
             article =await article.save()
             res.redirect(`/articles/${article.slug}`)}
         catch(e){
