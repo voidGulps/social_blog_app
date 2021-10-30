@@ -23,7 +23,9 @@ const articleSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'User',
     },
-    
+    author:{
+        type:String
+    },
     createdAt:{
         type:Date,
         default:Date.now
