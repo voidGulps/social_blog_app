@@ -23,16 +23,15 @@
         </ul>
     </div>
 </nav>
-    <div class="container">
-        <h1 class="mb-4" align-text=center>Blog articles</h1>
+    <div class="container mt-2">
+        <h1 class="mb-2" align-text=center>Blog articles</h1>
         
 
         <% articles.forEach(article=>{%>
             <div class= 'card mt-4'>
                 <div class="card-body">
                     <h4 class="card-title"><%=article.title%></h4>
-                    <div class="card-subtitle italic"><%= article.author %>, </div>
-                    <div class="card-subtitle text-muted mb-2 d-inline"><%=article.createdAt.toLocaleDateString()%>.</div>
+                    <div class="card-subtitle"><%= article.author %>,<%=article.createdAt.toLocaleDateString()%>. </div>
                     <div class="card-text mb-2"><%=article.description%></div>
         
                     <a href="articles/<%= article.slug %> " class="btn btn-primary">Read More</a>
