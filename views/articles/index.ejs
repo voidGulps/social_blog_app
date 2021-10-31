@@ -31,7 +31,7 @@
             <div class= 'card mt-4'>
                 <div class="card-body">
                     <h4 class="card-title"><%=article.title%></h4>
-                    <div class="card-subtitle"><%= article.author %>,<%=article.createdAt.toLocaleDateString()%>. </div>
+                    <div class="card-subtitle text-muted"><%= article.author %>,<%=article.createdAt.toLocaleDateString()%>. </div>
                     <div class="card-text mb-2"><%=article.description%></div>
         
                     <a href="articles/<%= article.slug %> " class="btn btn-primary">Read More</a>
